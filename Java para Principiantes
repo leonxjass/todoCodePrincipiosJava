@@ -1,0 +1,434 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.mavan;
+import java.util.Scanner;
+import java.util.Random;
+/**
+ *
+ * @author Canal
+ */
+public class contandoNumeros {
+    
+    public static void contador() {
+        
+        System.out.println("Ingrese el limite del conteo");
+        Scanner sc = new Scanner(System.in);
+        int limite = sc.nextInt();
+    
+        for(int i=0; i<limite;i++)
+            System.out.println("f "+i);
+        
+        int c=0;
+        while(c<limite){
+            System.out.println("w: "+ c);
+            c++;
+        }
+        
+        do{
+            System.out.println("dw: " + c);
+            c++;
+        }
+        while(c<limite);
+        
+        
+    }
+    
+    public static void centinela(){
+        String[] palabras = new String[10];
+        Scanner sc = new Scanner(System.in);
+        int c =0;
+        
+        System.out.println("Ingrese una palabra");
+        String palabra = sc.nextLine();
+        
+        
+        while(!palabra.equalsIgnoreCase("salir".toLowerCase())){
+            palabra = sc.nextLine();
+            c++;
+            palabras[c] = palabra;
+        }
+        
+        for(int k=0; k<palabras.length;k++){
+            System.out.println(k + palabras[k]);
+        }
+        
+                
+    
+    }
+   
+    public static void matricesCarga(){
+        
+        Scanner sc = new Scanner(System.in);
+        int matrices[][] = new int[3][3];
+        
+        //Codigo para rellenar la matriz con 3x3
+        for(int filas=0; filas<3; filas++){
+            for(int columnas=0;columnas<3;columnas++){
+                System.out.print("Ingrese el valor para fila " + filas
+                + " Columna " + columnas + " : ");
+                matrices[filas][columnas] = sc.nextInt();   
+            }
+        }
+        
+        //Imprime la matriz de 3x3
+        for(int filas=0; filas<3; filas++){
+            for(int columnas=0;columnas<3;columnas++){
+                System.out.print(matrices[filas][columnas] + " ");
+            }
+            System.out.println("");
+        }
+        
+    }
+    
+    public static void matriEjercicios(){
+        
+        Scanner sc = new Scanner(System.in);
+        //double[][] notas = new double[4][4];
+        double[][] notas = {{90,80,70,60},{60,40,40,50},{70,90,60,30},{40,50,60,80}};
+        double suma = 0.0;
+        int contador = 1;
+        int alumno = 1;
+        
+        for(int f=0; f<3;f++){
+            for(int c=0; c<3;c++){
+                System.out.println("Ingrese la nota " + contador + 
+                        " del alumno " + alumno);
+                notas[f][c] = sc.nextDouble();
+                suma += notas[f][c];
+                contador++;
+            }
+            alumno++;
+            notas[f][3] = suma/3;
+            //despues de cargar y promediar retornamos a 
+            //0 para el prox estudiante
+            suma = 0.0;
+            contador =1;
+        }
+        
+        System.out.println("NOTA1   NOTA2   NOTA3   PROM");
+        for(int f=0; f<4; f++){
+            for(int c=0; c<4; c++){
+                //System.out.println("Alumno " + c + ": " + notas[f][c]);
+                System.out.print(notas[f][c] + "\t");
+            }
+            System.out.println(" ");
+        }
+        
+    }
+    
+    public static void arrEjercicios(){
+        
+        Scanner ingreso = new Scanner(System.in);
+        int[] enteros = new int[15];
+        //int[] enteros ={10,3,56,98,3,4,5,6,7,8,9,3,56,3,45};
+        
+        int c = 0;
+        int s = 0;
+        
+        for(int n=0; n<enteros.length;n++){
+            System.out.println("Ingrese un numero entero");
+            c = ingreso.nextInt();
+            enteros[n] = c;
+            if(c==3)
+                s++;
+        }
+        
+        for(int n=0;n<enteros.length;n++){
+            System.out.print(enteros[n] + " ");}
+        System.out.println("\nEl numero 3 se ingreso " + s + " veces");
+    }
+    
+    public static void nombres(){
+        
+        Scanner sc = new Scanner(System.in);
+        int n=0;
+        int contador =0;
+        int nombres =1;
+        
+        System.out.print("Elija la Opcion que desea usar: \n"
+                + "1. Agregar nombres \n2. Imprimir Lista \n");
+        int op = sc.nextInt();
+        
+        String[] nombresElegidos = new String[n];
+        
+        switch(op){
+        case 1:
+            
+            while(contador<n){
+                System.out.println("Ingrese el nombre " + nombres + ":");
+                Scanner entryData = new Scanner(System.in);
+                String entryNombres = entryData.nextLine();
+                nombresElegidos[contador] = entryNombres;
+                contador++;
+                nombres ++;
+            }
+        case 2:
+            System.out.println("Personas Enlistadas en el sistema");
+            for(int p=0; p<nombresElegidos.length;p++)
+                System.out.println("#"+p+" "+nombresElegidos[p]);
+    }
+    }
+    
+    public static void nombres2(){
+        Scanner sc = new Scanner(System.in);
+        String[] nombresElegidos = null;
+        int n=0;
+        int nombres = 1;
+        int contador =0;
+        
+        while(true){
+        
+        System.out.print("Elija una opcion \n1. Guardar nombres \n2. Imprimir nombres"
+                + "\n3. Salir\n >> ");
+        int op = sc.nextInt();
+        
+        
+        if(op==1){
+            System.out.print("Cuantos nombres quiere ingresar >> ");
+            n=sc.nextInt();
+            nombresElegidos = new String[n];
+            
+        switch(op){
+            case 1:
+                while(contador<n){
+                System.out.println("Ingrese el nombre " + nombres + ":");
+                Scanner entryData = new Scanner(System.in);
+                String entryNombres = entryData.nextLine();
+                nombresElegidos[contador] = entryNombres;
+                contador++;
+                nombres ++;}
+                break;
+            case 2:
+                    if (nombresElegidos != null) {
+                        for (int i = 0; i < nombresElegidos.length; i++) {
+                            System.out.println(nombresElegidos[i]);
+                        }
+                    } else {
+                        System.out.println("No se han ingresado nombres todavía.");
+                    }
+                    break;
+            }
+        } else if(op==3){break;} 
+    }
+}
+    
+    public static void vectorNames(){
+        
+        //String[] namesVector = {"Anderson Leon", "Adrian Solano", "Kenji David"};
+        Scanner sc = new Scanner(System.in);
+        int conteoNombres = 1;
+        String nombreIngresado;
+        int cantidadNames = 0;
+        
+        System.out.print("Cuantos nombres desea Ingresar? >> ");
+        cantidadNames = sc.nextInt();
+        
+        String[] namesVector = new String[cantidadNames];
+        
+        for(int i=0; i<namesVector.length;i++){
+            Scanner sc2 = new Scanner(System.in);
+            System.out.print("Ingrese nombre " + conteoNombres +": ");
+            nombreIngresado = sc2.nextLine();
+            namesVector[i] = nombreIngresado;
+            conteoNombres ++;
+        }
+        
+        sc.close();
+        
+        System.out.println("Lista de nombres Ingresados");
+        for(int n=0;n<namesVector.length;n++ )
+            System.out.println((n+1)+" "+namesVector[n]);
+        
+    }
+    
+    private static void validUser(String user){
+        if(user.toLowerCase().equals("romerofi")||user.toLowerCase().equals("jleon23")){
+            if(user.toLowerCase().equals("romerofi")){
+                System.out.println("\nBienvenido Presidente Isaac Romero\n(USER: " + user +")\n");}
+            else if(user.toLowerCase().equals("jleon23")){
+                System.out.println("\nBienvenido consejero Anderson Leon papi2\n(USER: " + user +")\n");}
+            else{
+                System.out.println("Bienvenido " + user);}
+            vectorNames();
+        }else{
+            System.out.println("user: " + user + " desconocido");
+            System.out.println("ACCESO DENEGADO");
+        }
+    }
+    
+    public static void temperaturs(){
+        Scanner cargaDbl = new Scanner(System.in);
+        Scanner cargaStr = new Scanner(System.in);
+        
+        String[] ciudades = new String[3];
+        double[] tempMin  = new double[3];
+        double[] tempMax  = new double[3];
+        
+        for(int t=0;t<ciudades.length;t++){
+            System.out.println("Ingrese la nombre de ciudad "+t);
+            ciudades[t] = cargaStr.nextLine();
+            System.out.println("Ingrese temperatura min de "+t);
+            tempMin[t] = cargaDbl.nextDouble();
+            System.out.println("Ingrese temperatura max de "+t);
+            tempMax[t] = cargaDbl.nextDouble();
+        }
+        
+        //determinar la minima
+        double minima = 9999.9;
+        int posMin=-1;
+        double maxima = -99999.00;
+        int posMax=-1;
+        
+        //analizando la minima y la max y guardando su pocicion
+        for(int t=0;t<ciudades.length;t++){
+            if(tempMin[t]<minima){
+                minima = tempMin[t];
+                posMin = t;
+            }
+            if(tempMax[t] > maxima){
+                maxima = tempMax[t];
+                posMax = t;
+            }
+        }
+        System.out.println("Ciudad\tT. MIN\tT.MAX\n"
+                + "================================");
+        for(int i=0; i<ciudades.length;i++){
+            System.out.println(ciudades[i]+"\t"+tempMin[i]+"\t"+tempMax[i]);}
+        System.out.println("=====================\n");
+        
+        System.out.println("La minima es: " + minima +"\n"
+        + "En la ciudad: " + ciudades[posMin]);
+        System.out.println("La maxima es: " + maxima +"\n"
+        + "En la ciudad: " + ciudades[posMax]);
+    }
+    
+    public static int[][] matriz(){
+        Scanner sc = new Scanner(System.in);
+        Random aleatorio = new Random(20);
+        int[][] matriz = new int[4][5];
+        int contador=1;
+        
+        //rellenando matriz
+        for(int f=0;f<4;f++){
+            for(int c=0; c<5;c++){
+                //System.out.println("ingres un numero entero " + contador);
+                //matriz[f][c] = sc.nextInt();
+                matriz[f][c] = aleatorio.nextInt(20)+1;
+                //contador ++;
+            }
+        }
+        return matriz;
+    }
+    
+    public static void rellenarMatrices(){
+        
+        //imprimiendo los datos del matriz
+        System.out.println("Matriz Aleatoria 2");
+        for(int f=0;f<4;f++){
+            System.out.print((f+1)+". [");
+            for(int c=0; c<5;c++){
+                System.out.print("\t"+matriz()[f][c]+"     ");
+            }
+            System.out.println("]");
+        }
+    }
+    
+    public static void companiaDeVuelos(){
+        
+        Scanner teclado = new Scanner(System.in);
+        int[][] vuelos = new int[6][3];
+        String[] destinos = {"Espania","Korea","Honduras","Russia","Italia","Israel",};
+        
+        for(int f=0;f<6;f++){
+            for(int c=0;c<3;c++){
+                //System.out.println("Ingrese la cantidad de asientos para el destino" + f + " Horario " + c);
+                //vuelos[f][c] = teclado.nextInt();
+                vuelos[f][c] = 10;
+            }
+        }
+        
+        //venta de asientos
+        Scanner teclado2 = new Scanner(System.in);
+        String bandera = "";
+        int destino =0;
+        int horario =0;
+        int asientos =0;
+        
+        System.out.println("TABLA ACTUAL DE VUELOS DISPONIBLES ");
+        System.out.println("\t     0\t 1   2");
+        for(int f=0;f<6;f++){
+            System.out.print("Destino " + (f+1)+" >> ");
+            for(int c=0;c<3;c++){
+                System.out.print(vuelos[f][c]+"  ");
+            }
+            System.out.println("");
+        }
+        
+        while(!bandera.equalsIgnoreCase("f")){
+            
+            System.out.println("ingrese el # de destino");
+            destino = teclado.nextInt();
+            System.out.println("ingrese el horario del vuelo");
+            horario = teclado.nextInt();
+            System.out.println("ingrese la cantidad de asientos");
+            asientos = teclado.nextInt();
+            
+            if(destino >=0 && destino<=5){
+                if(horario>=0 && horario<=2){
+                    if(vuelos[destino][horario]>= asientos){
+                        System.out.println("su reserva fue realizada con exito");
+                        vuelos[destino][horario] -= asientos;
+                    }else{
+                        System.out.println("Operacion no completada "
+                                + "- NO HAY ASIENTOS DISPONIBLES");}
+                }else{
+                    System.out.println("Horario no existe, ingrese entre 1 y 2");
+                }
+            }else {
+                System.out.println("destino no existente, ingrese entre 0 y 5");
+            }
+            //mensaje al usuario de continuar
+            System.out.println("Desea continuar con su reserva: ingrese"
+                    + " f o presione enter");
+            bandera = teclado2.nextLine();
+        }
+        System.out.println("la cantidad de asientos al destino >> " + destinos[destino]
+        + "\nson de >>" + vuelos[destino][horario]);
+        
+        System.out.println("TABLA ACTUALIZADA DE VUELOS DISPONIBLES ");
+        System.out.println("\t    A\tB   C");
+        for(int f=0;f<6;f++){
+            System.out.print("Vuelo " + (f+1)+" >> ");
+            for(int c=0;c<3;c++){
+                System.out.print(vuelos[f][c]+"  ");
+            }
+            System.out.println("");
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner userCatch = new Scanner(System.in);
+        //centinela();
+        //String palabras = "Prueba para quitar espacios y que quede to pegao";
+        //System.out.println(palabras.replace(" ",""));
+        //matricesCarga();
+        //matriEjercicios();
+        //arrEjercicios();
+        //nombres2();
+        //vectorNames();
+        /*
+        System.out.print("Valide su usuario porfavor >> ");
+        String USER = userCatch.nextLine();
+        validUser(USER);
+        */
+        //temperaturs();
+        //rellenarMatrices();
+        companiaDeVuelos();
+        
+        
+        
+    }
+    
+}
